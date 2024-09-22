@@ -1,0 +1,36 @@
+# k apply -f prometheus-file-sd-targets.yml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-file-sd-targets
+  namespace: default
+  annotations:
+    meta.helm.sh/release-name: kube-prometheus-stack
+  labels:
+    env: dev
+    helmStack: prometheus
+data:
+  blackbox_http.yml: |
+    - targets:
+      - https://www.bing.com
+      labels:
+        job: blackbox_http
+        service: bing
+        env: dev
+        namespace: default
+    - targets:
+      - https://www.bingggf.com
+      labels:
+        job: blackbox_http
+        service: bing_broken
+        env: prod
+        namespace: default
+  blackbox_icmp.yml: |
+    - targets:
+      - www.bing.com
+      labels:
+        job: blackbox_icmp
+        service: bing
+        env: prod
+        namespace: default
