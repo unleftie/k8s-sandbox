@@ -5,14 +5,16 @@
 - [Docker](https://docs.docker.com/get-docker/)
 - [k3d](https://k3d.io/)
 
-## Prepare environment
+## 1. Prepare k3d environment
 
 ```bash
-k3d cluster create main
+k3d cluster create
 k3d node list
 ```
 
-## Prepare monitoring
+## 2. [Set up Dashboard UI for k3d](https://istio.io/latest/docs/setup/platform-setup/k3d/#set-up-dashboard-ui-for-k3d)
+
+## 3. Prepare kube-prometheus-stack
 
 ```bash
 k apply -f monitoring/prometheus-file-sd-targets.yml
