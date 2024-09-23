@@ -4,7 +4,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: prometheus-external-alerting-rules-crd
-  namespace: default
+  namespace: monitoring
   annotations:
     meta.helm.sh/release-name: kube-prometheus-stack
   labels:

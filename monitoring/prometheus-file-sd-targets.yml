@@ -4,7 +4,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: prometheus-file-sd-targets
-  namespace: default
+  namespace: monitoring
   annotations:
     meta.helm.sh/release-name: kube-prometheus-stack
   labels:
@@ -18,14 +18,14 @@ data:
         job: blackbox_http
         service: bing
         env: dev
-        namespace: default
+        namespace: monitoring
     - targets:
       - https://www.bingggf.com
       labels:
         job: blackbox_http
         service: bing_broken
         env: prod
-        namespace: default
+        namespace: monitoring
   blackbox_icmp.yml: |
     - targets:
       - www.bing.com
@@ -33,4 +33,4 @@ data:
         job: blackbox_icmp
         service: bing
         env: prod
-        namespace: default
+        namespace: monitoring

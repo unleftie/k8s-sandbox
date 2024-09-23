@@ -17,12 +17,14 @@ k3d node list
 ## 3. Prepare kube-prometheus-stack
 
 ```bash
-k apply -f monitoring/prometheus-file-sd-targets.yml
-helm install -f monitoring/blackbox.yml blackbox prometheus-community/prometheus-blackbox-exporter
+k create namespace monitoring
 
-k apply -f monitoring/alertmanager-secrets.yml
-helm install -f monitoring/prometheus-stack.yml prometheus prometheus-community/kube-prometheus-stack
+k apply -n monitoring -f monitoring/prometheus-file-sd-targets.yml
+helm install -n monitoring -f monitoring/blackbox.yml blackbox prometheus-community/prometheus-blackbox-exporter
 
-k apply -f monitoring/prometheus-external-alerting-rules-crd.yml
-k apply -f monitoring/alertmanager-config-crd.yml
+k apply -n monitoring -f monitoring/alertmanager-secrets.yml
+helm install -n monitoring -f monitoring/prometheus-stack.yml prometheus prometheus-community/kube-prometheus-stack
+
+k apply -n monitoring -f monitoring/prometheus-external-alerting-rules-crd.yml
+k apply -n monitoring -f monitoring/alertmanager-config-crd.yml
 ```
