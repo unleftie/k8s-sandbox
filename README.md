@@ -28,3 +28,5 @@ helm install -n monitoring -f monitoring/prometheus-stack.yml prometheus prometh
 k apply -n monitoring -f monitoring/prometheus-external-alerting-rules-crd.yml
 k apply -n monitoring -f monitoring/alertmanager-config-crd.yml
 ```
+
+test
