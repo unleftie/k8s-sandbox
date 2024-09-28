@@ -1,0 +1,48 @@
+# https://prometheus-operator.dev/docs/developer/alerting/
+# k apply -f monitoring/alertmanager-config-crd.yml
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: alertmanager-config-crd
+  namespace: monitoring
+  annotations:
+    meta.helm.sh/release-name: kube-prometheus-stack
+  labels:
+    env: dev
+    helmStack: prometheus
+    alertmanagerConfig: example
+spec:
+  route:
+    groupWait: 15s
+    groupInterval: 15s
+    repeatInterval: 24h
+    groupBy:
+      - "namespace"
+      - "job"
+      - "alertname"
+    receiver: "telegram"
+    routes:
+      - receiver: "null"
+        matchers:
+          - name: severity
+            value: critical
+            matchType: "!="
+      - receiver: "telegram"
+        matchers:
+          - name: severity
+            value: critical
+            matchType: "="
+  receivers:
+    - name: "null"
+    - name: "telegram"
+      telegramConfigs:
+        - chatID: -1001677792742
+          botToken:
+            key: "alertmanager_telegram_bot_token"
+            name: "alertmanager-secrets"
+          sendResolved: true
+          parseMode: HTML
+          message: '{{ template "telegram.tmpl" .}}'
+          httpConfig:
+            followRedirects: true

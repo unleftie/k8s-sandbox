@@ -1,2 +1,2 @@
-alertmanager-config-crd.yml
-alertmanager-secrets.yml
+*-secrets.yml
+*-secrets.yaml
