@@ -16,7 +16,17 @@ k3d kubeconfig get remote
 
 ## 2. [Set up Dashboard UI for k3d](https://istio.io/latest/docs/setup/platform-setup/k3d/#set-up-dashboard-ui-for-k3d)
 
-## 3. Prepare kube-prometheus-stack
+## 3. Prepare argo-cd
+
+```bash
+k create namespace argo-cd
+
+helm repo add argo https://argoproj.github.io/argo-helm
+
+helm install -n argo-cd -f argo-cd/values.yml argo-cd argo/argo-cd
+```
+
+## 4. Prepare kube-prometheus-stack
 
 ```bash
 k create namespace monitoring
