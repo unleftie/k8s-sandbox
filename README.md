@@ -8,8 +8,10 @@
 ## 1. Prepare k3d environment
 
 ```bash
-k3d cluster create
+export INTERNAL_IP="10.10.10.10"
+k3d cluster create remote --api-port 6443 --k3s-arg "--tls-san=$INTERNAL_IP"@server:\*
 k3d node list
+k3d kubeconfig get remote
 ```
 
 ## 2. [Set up Dashboard UI for k3d](https://istio.io/latest/docs/setup/platform-setup/k3d/#set-up-dashboard-ui-for-k3d)
