@@ -1,4 +1,3 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -10,10 +9,13 @@ spec:
   destination:
     name: in-cluster
     namespace: argocd
-  source:
-    path: "monitoring/prometheus-blackbox-exporter"
-    repoURL: "https://github.com/unleftie/k8s-sandbox.git"
-    targetRevision: main
+  sources:
+    - repoURL: "https://github.com/unleftie/k8s-sandbox.git"
+      path: "monitoring/prometheus-blackbox-exporter"
+      targetRevision: main
+    - repoURL: "https://github.com/unleftie/k8s-sandbox.git"
+      path: "monitoring/kube-prometheus-stack"
+      targetRevision: main
   project: default
   syncPolicy:
     automated:
