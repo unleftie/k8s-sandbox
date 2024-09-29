@@ -5,6 +5,9 @@ kind: PrometheusRule
 metadata:
   name: prometheus-external-alerting-rules-crd
   namespace: monitoring
+  annotations:
+    app.kubernetes.io/instance: kube-prometheus-stack
+    argocd.argoproj.io/instance: kube-prometheus-stack
   labels:
     env: dev
     helmStack: prometheus
