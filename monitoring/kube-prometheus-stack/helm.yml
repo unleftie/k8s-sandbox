@@ -124,9 +124,9 @@ spec:
                   path: "metrics"
                   scheme: "http"
           prometheusSpec:
-            ruleSelectorNilUsesHelmValues: false
             ruleSelector:
               matchLabels:
+                release: ~
                 helmStack: prometheus
             additionalScrapeConfigs:
               - job_name: "blackbox_http"
