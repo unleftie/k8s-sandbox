@@ -32,10 +32,6 @@ spec:
           hostRootFsMount:
             enabled: false
 
-        prometheusOperator:
-          admissionWebhooks:
-            failurePolicy: Ignore
-
         defaultRules:
           rules:
             etcd: false
