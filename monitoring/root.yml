@@ -11,7 +11,7 @@ spec:
     name: in-cluster
     namespace: argocd
   source:
-    path: "monitoring"
+    path: "monitoring/*"
     repoURL: "https://github.com/unleftie/k8s-sandbox.git"
     targetRevision: main
   project: default
