@@ -19,20 +19,12 @@ k3d kubeconfig get remote
 ## 3. Prepare argo-cd
 
 ```bash
-helm install argocd argo/argo-cd -n argocd
+k create namespace argocd
+helm install -n argocd argocd argo/argo-cd
 ```
 
-## 4. Prepare kube-prometheus-stack
+## 4. Prepare monitoring stack
 
 ```bash
-k create namespace monitoring
-
-k apply -n monitoring -f monitoring/prometheus-file-sd-targets.yml
-helm install -n monitoring -f monitoring/blackbox.yml blackbox prometheus-community/prometheus-blackbox-exporter
-
-k apply -n monitoring -f monitoring/alertmanager-secrets.yml
-helm install -n monitoring -f monitoring/prometheus-stack.yml prometheus prometheus-community/kube-prometheus-stack
-
-k apply -n monitoring -f monitoring/prometheus-external-alerting-rules-crd.yml
-k apply -n monitoring -f monitoring/alertmanager-config-crd.yml
+k apply -n argocd -f monitoring/root.yml
 ```
