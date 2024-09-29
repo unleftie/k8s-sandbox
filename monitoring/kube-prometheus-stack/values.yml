@@ -11,7 +11,7 @@ prometheus-node-exporter:
 
 prometheusOperator:
   admissionWebhooks:
-    failurePolicy: Ignore
+    failurePolicy: ""
 
 defaultRules:
   rules:
