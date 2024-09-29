@@ -136,7 +136,7 @@ prometheus:
             target_label: env
             separator: ""
           - target_label: __address__
-            replacement: blackbox-prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
+            replacement: prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
       - job_name: "blackbox_icmp"
         metrics_path: /probe
         params:
@@ -150,7 +150,7 @@ prometheus:
           - source_labels: [__param_target]
             target_label: instance
           - target_label: __address__
-            replacement: blackbox-prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
+            replacement: prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
     volumes:
       - name: file-sd-config
         configMap:
