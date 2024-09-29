@@ -106,6 +106,9 @@ prometheus:
           scheme: "http"
   prometheusSpec:
     ruleSelectorNilUsesHelmValues: false
+    ruleSelector:
+      matchLabels:
+        helmStack: prometheus
     additionalScrapeConfigs:
       - job_name: "blackbox_http"
         metrics_path: /probe
