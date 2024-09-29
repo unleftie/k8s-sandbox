@@ -16,9 +16,9 @@ spec:
     - repoURL: "https://github.com/unleftie/k8s-sandbox.git"
       path: "monitoring/kube-prometheus-stack"
       targetRevision: main
-    - repoURL: "https://github.com/unleftie/k8s-sandbox.git"
-      path: "monitoring/kube-prometheus-stack/crds"
-      targetRevision: main
+    # - repoURL: "https://github.com/unleftie/k8s-sandbox.git"
+    #   path: "monitoring/kube-prometheus-stack/crds"
+    #   targetRevision: main
   project: default
   syncPolicy:
     automated:
