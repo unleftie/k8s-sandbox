@@ -19,11 +19,7 @@ k3d kubeconfig get remote
 ## 3. Prepare argo-cd
 
 ```bash
-k create namespace argo-cd
-
-helm repo add argo https://argoproj.github.io/argo-helm
-
-helm install -n argo-cd -f argo-cd/values.yml argo-cd argo/argo-cd
+helm install argocd argo/argo-cd -n argocd
 ```
 
 ## 4. Prepare kube-prometheus-stack

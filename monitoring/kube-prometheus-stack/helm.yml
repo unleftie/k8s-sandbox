@@ -5,14 +5,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   name: kube-prometheus-stack
-  namespace: monitoring
+  namespace: argocd
 spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
   syncPolicy:
-    automated: {}
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
       - ServerSideApply=true
       - CreateNamespace=true

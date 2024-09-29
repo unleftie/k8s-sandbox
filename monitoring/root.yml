@@ -9,3 +9,26 @@
 #       server: https://kubernetes.default.svc
 #   sourceRepos:
 #     - https://prometheus-community.github.io/helm-charts
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    name: in-cluster
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  source:
+    path: "monitoring/prometheus-blackbox-exporter"
+    repoURL: "https://github.com/unleftie/k8s-sandbox.git"
+    targetRevision: main
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
