@@ -19,10 +19,11 @@ spec:
       - ServerSideApply=true
       - CreateNamespace=true
   source:
-    repoURL: https://prometheus-community.github.io/helm-charts
-    chart: kube-prometheus-stack
-    targetRevision: 63.1.0
+    repoURL: "https://github.com/unleftie/k8s-sandbox.git"
+    path: "monitoring/kube-prometheus-stack"
+    targetRevision: main
     helm:
-      valueFiles:
-        - monitoring/kube-prometheus-stack/values.yml
-        - values.yml
+      repoURL: https://prometheus-community.github.io/helm-charts
+      chart: "kube-prometheus-stack"
+      chartVersion: "63.1.0"
+      valueFiles: ["values.yml"]
