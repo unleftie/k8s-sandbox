@@ -20,7 +20,6 @@ spec:
       - CreateNamespace=true
   sources:
     - repoURL: https://github.com/unleftie/k8s-sandbox.git
-      path: monitoring/kube-prometheus-stack
       targetRevision: main
       ref: kube-prometheus-stack-values
     - repoURL: https://prometheus-community.github.io/helm-charts
@@ -28,4 +27,4 @@ spec:
       targetRevision: 63.1.0
       helm:
         valueFiles:
-          - $kube-prometheus-stack-values/values.yml
+          - $kube-prometheus-stack-values/monitoring/kube-prometheus-stack/values.yml
