@@ -18,12 +18,14 @@ spec:
     syncOptions:
       - ServerSideApply=true
       - CreateNamespace=true
-  source:
-    repoURL: "https://github.com/unleftie/k8s-sandbox.git"
-    path: "monitoring/prometheus-blackbox-exporter"
-    targetRevision: main
-    helm:
-      repoURL: https://prometheus-community.github.io/helm-charts
-      chart: "prometheus-blackbox-exporter"
-      chartVersion: "9.0.0"
-      valueFiles: ["values.yml"]
+  sources:
+    - repoURL: https://github.com/unleftie/k8s-sandbox.git
+      path: monitoring/prometheus-blackbox-exporter
+      targetRevision: main
+      ref: prometheus-blackbox-exporter-values
+    - repoURL: https://prometheus-community.github.io/helm-charts
+      chart: prometheus-blackbox-exporter
+      targetRevision: 9.0.0
+      helm:
+        valueFiles:
+          - $prometheus-blackbox-exporter-values/values.yml
