@@ -23,43 +23,6 @@ spec:
     chart: prometheus-blackbox-exporter
     targetRevision: 9.0.0
     helm:
-      values: |
-        commonLabels:
-          env: dev
-          helmStack: prometheus
-
-        securityContext:
-          capabilities:
-            drop: ["ALL"]
-            add: ["NET_RAW"] # add NET_RAW to enable ICMP
-
-        config:
-          modules:
-            http:
-              prober: http
-              timeout: 5s
-              http:
-                preferred_ip_protocol: "ip4"
-                ip_protocol_fallback: false
-                valid_http_versions: ["HTTP/1.1", "HTTP/2.0"]
-                method: GET
-                valid_status_codes: []
-                fail_if_ssl: false
-                fail_if_not_ssl: false
-                follow_redirects: true
-                tls_config:
-                  insecure_skip_verify: true
-            icmp:
-              prober: icmp
-              timeout: 1s
-              icmp:
-                preferred_ip_protocol: ip4
-
-        serviceMonitor:
-          enabled: true
-          defaults:
-            labels:
-              release: prometheus
-            interval: 30s
-            scrapeTimeout: 5s
-            module: http
+      valueFiles:
+        - monitoring/prometheus-blackbox-exporter/values.yml
+        - values.yml
