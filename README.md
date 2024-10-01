@@ -26,7 +26,7 @@ helm install -n argocd argocd argo/argo-cd
 
 ```bash
 k create namespace monitoring
-k apply -n monitoring -f monitoring/kube-prometheus-stack/alertmanager-secrets.yml
-k apply -n argocd -f root.yml --wait=true
+k apply -n monitoring -f monitoring/kube-prometheus-stack/secrets/alertmanager-secrets.yml
+k apply -n argocd -f root.yml
 k apply -n argocd -f crds.yml
 ```
