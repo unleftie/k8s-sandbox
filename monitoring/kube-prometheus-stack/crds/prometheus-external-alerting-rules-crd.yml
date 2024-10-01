@@ -1,4 +1,3 @@
-# k apply -f prometheus-external-alerting-rules-crd.yml
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule

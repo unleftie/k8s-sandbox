@@ -1,5 +1,4 @@
 # https://prometheus-operator.dev/docs/developer/alerting/
-# k apply -f monitoring/alertmanager-config-crd.yml
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig

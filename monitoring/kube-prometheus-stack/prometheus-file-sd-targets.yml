@@ -1,4 +1,3 @@
-# k apply -f prometheus-file-sd-targets.yml
 ---
 apiVersion: v1
 kind: ConfigMap
