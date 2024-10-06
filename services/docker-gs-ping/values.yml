@@ -1,0 +1,3 @@
+# https://github.com/unleftie/docker-gs-ping/blob/main/charts/docker-gs-ping/values.yaml
+
+replicaCount: 1
