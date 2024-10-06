@@ -1,5 +1,5 @@
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-nginx-monitoring-crd
@@ -10,6 +10,9 @@ spec:
     - http:
         paths:
           - path: /grafana
+            pathType: Prefix # This is a required field in v1
             backend:
-              serviceName: kube-prometheus-stack-grafana
-              servicePort: 80
+              service:
+                name: kube-prometheus-stack-grafana
+                port:
+                  number: 80
