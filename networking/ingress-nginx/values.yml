@@ -2,6 +2,3 @@
 
 commonLabels:
   env: dev
-
-controller:
-  name: controller
