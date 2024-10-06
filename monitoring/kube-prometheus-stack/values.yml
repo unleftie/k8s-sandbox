@@ -26,6 +26,8 @@ customRules:
     severity: "critical"
 
 grafana:
+  annotations:
+    ingress.class: "nginx"
   # FIXME: move to secret
   adminPassword: admin
   defaultDashboardsTimezone: Europe/Kyiv
