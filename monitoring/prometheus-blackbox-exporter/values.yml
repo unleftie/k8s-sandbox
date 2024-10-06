@@ -5,6 +5,7 @@ commonLabels:
   helmStack: prometheus
 
 securityContext:
+  # FIXME: workaround for EKS
   runAsUser: 0
   runAsGroup: 0
   allowPrivilegeEscalation: true
