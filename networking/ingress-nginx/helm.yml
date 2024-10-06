@@ -10,7 +10,7 @@ spec:
   project: default
   destination:
     name: in-cluster
-    namespace: network
+    namespace: networking
   syncPolicy:
     automated:
       prune: true
