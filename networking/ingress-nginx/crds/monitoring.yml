@@ -10,7 +10,7 @@ spec:
     - http:
         paths:
           - path: /grafana
-            pathType: Prefix # This is a required field in v1
+            pathType: Exact
             backend:
               service:
                 name: kube-prometheus-stack-grafana
