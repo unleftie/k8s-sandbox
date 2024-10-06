@@ -4,11 +4,11 @@ commonLabels:
   env: dev
   helmStack: prometheus
 
-podAnnotations:
-  pod-security.kubernetes.io/<MODE>: privileged
-  pod-security.kubernetes.io/<MODE>-version: latest
-
 securityContext:
+  runAsUser: 0
+  runAsGroup: 0
+  allowPrivilegeEscalation: true
+  runAsNonRoot: false
   capabilities:
     drop: ["ALL"]
     add: ["NET_RAW"] # add NET_RAW to enable ICMP
