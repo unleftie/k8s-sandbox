@@ -6,6 +6,7 @@ commonLabels:
 
 securityContext:
   allowPrivilegeEscalation: true
+  runAsNonRoot: false
   capabilities:
     drop: ["ALL"]
     add: ["NET_RAW"] # add NET_RAW to enable ICMP
