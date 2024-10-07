@@ -31,7 +31,7 @@ grafana:
   defaultDashboardsTimezone: Europe/Kyiv
   grafana.ini:
     server:
-      root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana/"
+      root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana"
     users:
       default_theme: system
       allow_sign_up: false
