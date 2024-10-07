@@ -4,7 +4,7 @@ kind: Application
 metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  name: ingress-nginx-monitoring-repository
+  name: ingress-nginx-monitoring
   namespace: argocd
 spec:
   project: default
