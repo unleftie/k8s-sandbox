@@ -24,7 +24,7 @@ spec:
       ref: docker-gs-ping-values
     - repoURL: https://unleftie.github.io/docker-gs-ping
       chart: docker-gs-ping
-      targetRevision: 1.3.5
+      targetRevision: 1.3.6
       helm:
         valueFiles:
           - $docker-gs-ping-values/services/docker-gs-ping/values.yml
