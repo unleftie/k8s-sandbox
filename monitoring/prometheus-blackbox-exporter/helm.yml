@@ -4,7 +4,7 @@ kind: Application
 metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  name: prometheus-blackbox-exporter
+  name: prometheus-blackbox-exporter-repository
   namespace: argocd
 spec:
   project: default

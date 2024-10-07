@@ -4,7 +4,7 @@ kind: Application
 metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
-  name: kube-prometheus-stack
+  name: kube-prometheus-stack-repository
   namespace: argocd
 spec:
   project: default
