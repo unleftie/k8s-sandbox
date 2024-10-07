@@ -28,8 +28,9 @@ customRules:
 grafana:
   # FIXME: move to secret
   adminPassword: admin
-  ingress:
-    path: /grafana/
+  env:
+    - name: GF_SERVER_ROOT_URL
+      value: "/grafana/"
   defaultDashboardsTimezone: Europe/Kyiv
   grafana.ini:
     users:
