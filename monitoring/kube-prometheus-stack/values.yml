@@ -28,6 +28,8 @@ customRules:
 grafana:
   # FIXME: move to secret
   adminPassword: admin
+  ingress:
+    path: /grafana/
   defaultDashboardsTimezone: Europe/Kyiv
   grafana.ini:
     users:
